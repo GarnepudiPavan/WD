@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="13784" started-at="2016-12-29T06:42:41Z" finished-at="2016-12-29T06:42:54Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="13784" started-at="2016-12-29T06:42:41Z" finished-at="2016-12-29T06:42:54Z">
+      <class name="src.test.java.TestYouTubeVideos">
+        <test-method status="PASS" signature="initialize()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="initialize" is-config="true" duration-ms="13479" started-at="2016-12-29T12:12:41Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="test3()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test3" is-config="true" duration-ms="2" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test1" is-config="true" duration-ms="1" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test2" is-config="true" duration-ms="1" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test1" duration-ms="29" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test2" is-config="true" duration-ms="6" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test2" duration-ms="12" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test2" is-config="true" duration-ms="1" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test4()[pri:1, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test4" duration-ms="15" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test2" is-config="true" duration-ms="1" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test3()[pri:2, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test3" duration-ms="4" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="test4()[pri:0, instance:src.test.java.TestYouTubeVideos@1ce92674]" name="test4" is-config="true" duration-ms="3" started-at="2016-12-29T12:12:54Z" finished-at="2016-12-29T12:12:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4 -->
+      </class> <!-- src.test.java.TestYouTubeVideos -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
