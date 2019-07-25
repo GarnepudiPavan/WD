@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="API_Test_Suite" verbose="1">
+	<listeners>
+		<listener class-name="com.api.base.ExtentReportListener"></listener>
+		</listeners>
+		<!-- <test name="APITests" > <classes> <class name="com.restapi.automation" 
+			/> </classes> </test> -->
+
+		<test name="API-Test-Regression">
+			<classes>
+				<class name="com.restapi.automation.ErgastAPITests" />
+
+			</classes>
+		</test>
+</suite>
