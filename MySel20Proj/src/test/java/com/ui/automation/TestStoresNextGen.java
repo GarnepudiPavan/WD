@@ -1,4 +1,4 @@
-package src.test.java;
+package com.ui.automation;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

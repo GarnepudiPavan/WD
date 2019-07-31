@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="UI_Test_Suite" verbose="1" parallel="tests" thread-count="1">
+<suite name="UI_Test_Suite" verbose="1" parallel="tests" thread-count="3">
 	<listeners>
 		<listener class-name="com.api.base.ExtentReportListener"></listener>
 	</listeners>
 	<!-- <test name="APITests" > <classes> <class name="com.restapi.automation" 
 		/> </classes> </test> -->
-	<parameter name="browser" value="firefox"/>
+	<parameter name="browser" value="chrome"/>
 		<test name="UI-Test-Regression">
 
 			<parameter name="param1" value="value1" />
@@ -21,7 +21,7 @@
 
 			</classes>
 </test>
- <!-- <test name="APITests" >
+ <test name="APITests" >
 	<parameter name="param1" value="value1" />
 		<parameter name="param2" value="value1" />
 		<groups>
@@ -34,5 +34,5 @@
 
 		</classes>
 
-		</test> -->
+		</test>
 </suite>
