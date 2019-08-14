@@ -13,10 +13,12 @@
 		<groups>
 			<run>
 				<exclude name="RestAPITests" />
+				<include name="RestAPITests2" />
 			</run>
 		</groups>
 		<classes>
-			<class name="com.restapi.automation.ErgastAPITests" />
+			<!-- <class name="com.restapi.automation.ErgastAPITests" /> -->
+			<class name="com.restapi.automation.ErgastAPIDriverTests"/>
 
 		</classes>
 		
