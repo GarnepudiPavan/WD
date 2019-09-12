@@ -1,4 +1,4 @@
-package src.test.java.dataprovider;
+package com.automation.util;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

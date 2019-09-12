@@ -1,38 +1,33 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="UI_Test_Suite" verbose="1" parallel="tests" thread-count="1">
+<suite name="UI_Test_Suite" verbose="1" parallel="false"
+	thread-count="1">
 	<listeners>
 		<listener class-name="com.api.base.ExtentReportListener"></listener>
 	</listeners>
-	<!-- <test name="APITests" > <classes> <class name="com.restapi.automation" 
-		/> </classes> </test> -->
-	<parameter name="browser" value="firefox"/>
-		<test name="UI-Test-Regression">
 
-			<parameter name="param1" value="value1" />
-			<parameter name="param2" value="value1" />
-			<groups>
-				<run>
-					<exclude name="RestAPITests" />
-				</run>
-			</groups>
-			<classes>
-				<class name="com.ui.automation.LogInTest" />
+	<parameter name="browser" value="chrome" />
+	<test name="UI-Test-Regression">
+		<!-- <groups> <run> <exclude name="UITestSuite" /> </run> </groups> -->
 
-			</classes>
-</test>
- <!-- <test name="APITests" >
-	<parameter name="param1" value="value1" />
-		<parameter name="param2" value="value1" />
-		<groups>
-			<run>
-				<include name="RestAPITests" />
-			</run>
-		</groups>
+
 		<classes>
-			<class name="com.restapi.automation.ErgastAPITests" />
+			<class name="com.ui.automation.LogInTest">
 
+				<methods>
+
+					<exclude name="logInTest" />
+
+				</methods>
+			</class>
+			<class name="com.ui.automation.HorizontalSliderTest">
+				<methods>
+
+					<!-- <exclude name="logInTest" /> -->
+					<include name="sliderRangeTest" />
+				</methods>
+			</class>
 		</classes>
+	</test>
 
-		</test> -->
 </suite>

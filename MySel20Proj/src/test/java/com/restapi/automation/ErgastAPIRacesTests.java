@@ -41,6 +41,9 @@ public class ErgastAPIRacesTests extends APIBaseTest {
 
 		given().when().get(apiEP).then().assertThat().body("MRData.RaceTable.Races[0].Results[0].Driver",
 				hasEntry("driverId", "hamilton"));
+		//Same assertion using hasEntry or using EqualTo if Json string Path entered in body is correct
+		given().when().get(apiEP).then().assertThat().body("MRData.RaceTable.Races[0].Results[0].Driver.driverId",
+				equalTo("hamilton"));
 		given().when().get(apiEP).then().assertThat().body("MRData.RaceTable.Races[0].Results", hasSize(20));
 		sa.assertAll();
 	}

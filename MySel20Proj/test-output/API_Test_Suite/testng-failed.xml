@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [API_Test_Suite]">
+  <listeners>
+    <listener class-name="com.api.base.ExtentReportListener"/>
+  </listeners>
+  <test thread-count="5" name="API-Test-Regression(failed)">
+    <parameter name="param1" value="value1"/>
+    <parameter name="param2" value="value1"/>
+    <groups>
+      <run>
+        <include name="RestAPITests2"/>
+        <exclude name="RestAPITests"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.restapi.automation.ErgastAPIDriverTests">
+        <methods>
+          <include name="setup"/>
+          <include name="testDriverNameInRace"/>
+        </methods>
+      </class> <!-- com.restapi.automation.ErgastAPIDriverTests -->
+    </classes>
+  </test> <!-- API-Test-Regression(failed) -->
+</suite> <!-- Failed suite [API_Test_Suite] -->

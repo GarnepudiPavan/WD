@@ -40,7 +40,7 @@ public class HorizontalSlidePage extends BasePageObject {
 		if (driver.findElement(slideRangeText).getText().equalsIgnoreCase("0")) {
 
 			WebElement sliderOne = driver.findElement(slider);
-			Actions moveSlider = new Actions(driver);
+			Actions moveSlider = new Actions(driver); 
 			moveSlider.dragAndDropBy(sliderOne, 0, slideRatio).build().perform();
 			wait.until(ExpectedConditions.presenceOfElementLocated(slideRangeText));
 			rangeText = driver.findElement(slideRangeText).getText();

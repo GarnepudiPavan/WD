@@ -13,6 +13,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BrowserDriverFactory {
 
 	private static final BrowserDriverFactory instance = new BrowserDriverFactory();
@@ -36,29 +38,61 @@ public class BrowserDriverFactory {
 		case "chrome":
 			logger.info("[Starting browser: " + browser + "...");
 			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-			driver.set(new ChromeDriver());
+//			WebDriverManager.chromedriver().setup();
+			setChrome();
+
 			break;
 
 		case "firefox":
 			logger.info("[Starting browser: " + browser + "...");
 			System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
-			driver.set(new FirefoxDriver());
+//			WebDriverManager.firefoxdriver().setup();
+			setFF();
 			break;
 
 		case "ie":
 			logger.info("[Starting browser: " + browser + "...");
+
+			/*
+			 * With WebDriver API we no longer need to explicity download and make browser
+			 * exe available. It downloads the required Driver binary file (if not present
+			 * locally) into Cache (default location ~/.m2/repository/webdriver)
+			 */
 			System.setProperty("webdriver.ie.driver", "src/main/resources/IEdriverServer.exe");
-			driver.set(new InternetExplorerDriver());
+			setIE();
+
+			/*
+			 * WebDriverManager.edgedriver().setup(); setIE();
+			 */
 			break;
 
 		default:
 			logger.info("[Couldn't Starting browser: " + browser + ". Its unknown. Starting chrome instead]");
+
 			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-			driver.set(new ChromeDriver());
+			setChrome();
+
+//			WebDriverManager.chromedriver().setup();
 			break;
 		}
 
+		return getDriver();
+	}
+
+	private WebDriver getDriver() {
 		return driver.get();
+	}
+
+	private void setChrome() {
+		driver.set(new ChromeDriver());
+	}
+
+	private void setFF() {
+		driver.set(new FirefoxDriver());
+	}
+
+	private void setIE() {
+		driver.set(new InternetExplorerDriver());
 	}
 
 	/** Starting tests using Selenium grid */
@@ -76,7 +110,7 @@ public class BrowserDriverFactory {
 		// Using DesiredCapabilities to set up browser
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName(browser);
-
+		
 		// Creating driver
 		try {
 			driver.set(new RemoteWebDriver(url, capabilities));

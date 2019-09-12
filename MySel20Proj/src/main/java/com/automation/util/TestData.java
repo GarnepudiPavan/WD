@@ -1,4 +1,4 @@
-package src.test.java.dataprovider;
+package com.automation.util;
 
 import java.io.File;
 import java.io.FileInputStream;

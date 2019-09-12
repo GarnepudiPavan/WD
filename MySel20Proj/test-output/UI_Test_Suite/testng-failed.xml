@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [UI_Test_Suite]">
+  <parameter name="browser" value="chrome"/>
+  <listeners>
+    <listener class-name="com.api.base.ExtentReportListener"/>
+  </listeners>
+  <test thread-count="1" name="UI-Test-Regression(failed)">
+    <classes>
+      <class name="com.ui.automation.HorizontalSliderTest">
+        <methods>
+          <include name="setup"/>
+          <include name="sliderRangeTest"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.ui.automation.HorizontalSliderTest -->
+    </classes>
+  </test> <!-- UI-Test-Regression(failed) -->
+</suite> <!-- Failed suite [UI_Test_Suite] -->

@@ -17,9 +17,9 @@
 			</run>
 		</groups>
 		<classes>
-			<!-- <class name="com.restapi.automation.ErgastAPITests" /> -->
-			<class name="com.restapi.automation.ErgastAPIDriverTests"/>
-
+			<!-- <class name="com.restapi.automation.ErgastAPITests" /> 
+			<class name="com.restapi.automation.ErgastAPIDriverTests"/>-->
+<class name="com.restapi.automation.ErgastAPIRacesTests"/>
 		</classes>
 		
 	</test>

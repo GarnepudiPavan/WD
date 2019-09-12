@@ -1,4 +1,4 @@
-package src.test.java.dataprovider;
+package com.automation.util;
 
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;

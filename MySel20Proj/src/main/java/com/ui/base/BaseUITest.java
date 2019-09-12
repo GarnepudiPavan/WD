@@ -70,6 +70,7 @@ public class BaseUITest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 }
