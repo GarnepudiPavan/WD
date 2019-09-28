@@ -5,6 +5,8 @@ import java.net.URL;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,6 +31,18 @@ public class BrowserDriverFactory {
 		return instance;
 	}
 
+	/**
+	 * @param browser
+	 * @return
+	 */
+
+	/*
+	 * With WebDriver API we no longer need to explicity download and make browser
+	 * exe available. It downloads the required Driver binary file (if not present
+	 * locally) into Cache (default location ~/.m2/repository/webdriver) For
+	 * WebDriverManager to work along with Webdrivermanager we need to add latest
+	 * selenium Java dependency as well
+	 */
 	public WebDriver createDriver(String browser) {
 
 		logger.info("[Setting up driver: " + browser + "]");
@@ -37,42 +51,40 @@ public class BrowserDriverFactory {
 		switch (browser.toLowerCase()) {
 		case "chrome":
 			logger.info("[Starting browser: " + browser + "...");
-			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-//			WebDriverManager.chromedriver().setup();
+//			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+
+			WebDriverManager.chromedriver().setup();
 			setChrome();
 
 			break;
 
 		case "firefox":
 			logger.info("[Starting browser: " + browser + "...");
-			System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
-//			WebDriverManager.firefoxdriver().setup();
+//			System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
+
 			setFF();
 			break;
 
 		case "ie":
 			logger.info("[Starting browser: " + browser + "...");
 
-			/*
-			 * With WebDriver API we no longer need to explicity download and make browser
-			 * exe available. It downloads the required Driver binary file (if not present
-			 * locally) into Cache (default location ~/.m2/repository/webdriver)
-			 */
-			System.setProperty("webdriver.ie.driver", "src/main/resources/IEdriverServer.exe");
+			// System.setProperty("webdriver.ie.driver",
+			// "src/main/resources/IEdriverServer.exe");
+			WebDriverManager.edgedriver().setup();
+			
 			setIE();
 
-			/*
-			 * WebDriverManager.edgedriver().setup(); setIE();
-			 */
 			break;
 
 		default:
 			logger.info("[Couldn't Starting browser: " + browser + ". Its unknown. Starting chrome instead]");
 
-			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+			// System.setProperty("webdriver.chrome.driver",
+			// "src/main/resources/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			setChrome();
 
-//			WebDriverManager.chromedriver().setup();
 			break;
 		}
 
@@ -84,6 +96,7 @@ public class BrowserDriverFactory {
 	}
 
 	private void setChrome() {
+
 		driver.set(new ChromeDriver());
 	}
 
@@ -108,9 +121,10 @@ public class BrowserDriverFactory {
 		logger.info("Starting " + browser + " on grid");
 
 		// Using DesiredCapabilities to set up browser
-		DesiredCapabilities capabilities = new DesiredCapabilities();
+		DesiredCapabilities capabilities = new DesiredCapabilities(browser, "69.0.1", Platform.LINUX);
+		// DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName(browser);
-		
+
 		// Creating driver
 		try {
 			driver.set(new RemoteWebDriver(url, capabilities));
