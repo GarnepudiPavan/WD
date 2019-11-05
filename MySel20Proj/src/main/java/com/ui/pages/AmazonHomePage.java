@@ -17,36 +17,41 @@ public class AmazonHomePage extends BasePageObject {
 	By navigator = By.cssSelector(".nav-search-submit > input:nth-child(2)");
 	By localization = By.className("icp-nav-link-inner");
 	By langCheckBox = By.xpath("//i[contains(@class, 'a-icon a-icon-radio')]");
-	By hindiCheckBox = By.cssSelector("a-icon a-icon-radio");
+	// By hindiCheckBox = By.cssSelector("a-icon a-icon-radio");
 	By changeCountry = By.cssSelector("#nav-flyout-icp > div:nth-child(2) > a:nth-child(6)");
 	By countryDropDown = By.cssSelector(".a-dropdown-prompt");
-	
-	
+	WebElement link = driver.findElement(localization);//
+	WebElement engRadio = driver.findElements(langCheckBox).get(0);
+	WebElement hindiRadio = driver.findElements(langCheckBox).get(1);
+
 	public AmazonHomePage(WebDriver driver, HashMap<String, String> testConfig, ITestContext context, Logger logger) {
 		super(driver, testConfig, context, logger);
 
 	}
-	
+
 	public boolean checkLocalization() {
-		 boolean isPresent;
-		 JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+		boolean isPresent;
+		JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+		//creating an initializing JS executor instance. JSExecutor is interface in Openqa.Selenium package 
 		driver.get(url);
 		logger.info("Page" + " " + driver.getTitle() + " " + "is open");
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable(navigator));
-	 
+
 		if (driver.findElements(navigator).size() > 0) {
-			
-			WebElement link = driver.findElement(localization);//.click();
-			 
-			
+			/*
+			 * JavascriptExecutor works with elements identified with Id,Class,Tag and we need to pass JS
+			 * script document.getElementsByClassName("a-icon a-icon-radio")[1].click(); equaivalent as arguments[0].click();
+			 * along with Webelement reference. We can verify if this script is working from Console in browser by running using 
+			 * document.getElementsByClassName("a-icon a-icon-radio")[1].click();
+			 */			
 			jsExec.executeScript("arguments[0].click();", link);
-			WebElement engRadio = driver.findElements(langCheckBox).get(0);
+
 			jsExec.executeScript("arguments[0].click();", engRadio);
-			WebElement hindiRadio  = driver.findElements(langCheckBox).get(1);
+
 			jsExec.executeScript("arguments[0].click();", hindiRadio);
-			
-			if (driver.findElements(langCheckBox).get(0).isDisplayed()&& driver.findElements(langCheckBox).get(1).isDisplayed()) {
+
+			if (engRadio.isDisplayed() && hindiRadio.isDisplayed()) {
 				logger.info("On Amazon Home Page English and Hindi localization checkbox are present..");
 				isPresent = true;
 			} else {
@@ -55,13 +60,12 @@ public class AmazonHomePage extends BasePageObject {
 
 			}
 		} else {
-			
+
 			logger.info("Amazon Home page is not found on" + " " + driver.getTitle() + " " + "page");
 			isPresent = false;
 
 		}
 		return isPresent;
 	}
-	
-	
+
 }
