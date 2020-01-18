@@ -28,14 +28,16 @@ public class ChangeLocalizationOnAmazon extends BaseUITest {
 			testName = logger.getName();
 			logger.info("testContext Name is" + " " + testContext.getName());
 			testConfig.put("testName", testName);
-			aznHP	 = new AmazonHomePage(driver, testConfig, testContext, logger);
+			SoftAssert softAssert = new SoftAssert();
 	}
 	
 	
 	@Test(testName = "Search is successful in Amazon", description = "Search on Amazon", priority = 1, groups="AmazonUITestSuite")
 	public void checkLocalizationOptions() {
-		SoftAssert softAssert = new SoftAssert();
-		softAssert.assertEquals(aznHP.checkLocalization(),true,"Localization options are not shown");
+		aznHP	 = new AmazonHomePage(driver, testConfig, testContext, logger);
+		aznHP.checkLocalization();
+		takeScreenshot("Amazon HomePage");
+		//softAssert.assertEquals(aznHP.checkLocalization(),true,"Localization options are not shown");
 	}
 	
 }

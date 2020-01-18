@@ -34,9 +34,8 @@ public class LogInTest extends BaseUITest {
 		testConfig.put("testName", testName);
 	}
 
-	// @Test(testName = "Check Login is successful", description = "After login is
-	// successful verifies Secure Area page is loaded", priority = 1,
-	// groups="UITestSuite")
+	 @Test(testName = "Check Login is successful", description = "After login is successful verifies Secure Area page is loaded", priority = 1,
+	 groups="UITestSuite")
 	public void logInTest() {
 		SoftAssert softAssert = new SoftAssert();
 		LoginPage loginPage = new LoginPage(driver, testConfig, testContext, logger);

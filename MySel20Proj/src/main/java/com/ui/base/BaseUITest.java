@@ -39,8 +39,8 @@ public class BaseUITest {
 			driver = factory.createDriver(browser);
 		}
 
-		// STATIC SLEEP FOR STUDENTS TO SEE TEST EXECUTION
-		sleep();
+		// STATIC SLEEP TO SEE TEST EXECUTION
+		//sleep();
 
 		// maximize browser window
 //		driver.manage().window().maximize();

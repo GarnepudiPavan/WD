@@ -30,7 +30,7 @@
 			</run>
 		</groups>
 		<classes>
-			<class name="com.restapi.automation.ErgastAPITests" />
+			<class name="com.restapi.automation.ErgastAPIDriverTests" />
 
 		</classes>
 

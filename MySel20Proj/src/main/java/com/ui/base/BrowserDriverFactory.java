@@ -51,9 +51,10 @@ public class BrowserDriverFactory {
 		switch (browser.toLowerCase()) {
 		case "chrome":
 			logger.info("[Starting browser: " + browser + "...");
-//			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-
+             //	System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+            //Downloads Chrome Driver
 			WebDriverManager.chromedriver().setup();
+			// Initiates Chrome browser instance
 			setChrome();
 
 			break;
@@ -72,13 +73,13 @@ public class BrowserDriverFactory {
 			// System.setProperty("webdriver.ie.driver",
 			// "src/main/resources/IEdriverServer.exe");
 			WebDriverManager.edgedriver().setup();
-			
+
 			setIE();
 
 			break;
 
 		default:
-			logger.info("[Couldn't Starting browser: " + browser + ". Its unknown. Starting chrome instead]");
+			logger.info("[Couldn't Starting browser: " + browser + ". It's unknown. Starting chrome instead]");
 
 			// System.setProperty("webdriver.chrome.driver",
 			// "src/main/resources/chromedriver.exe");

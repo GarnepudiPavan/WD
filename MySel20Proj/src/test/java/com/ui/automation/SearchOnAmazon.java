@@ -24,6 +24,7 @@ public class SearchOnAmazon extends BaseUITest {
 	protected ITestContext testContext;
 	protected Logger logger;
 	String testName;
+	AmazonSearchPage searchPage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void setup(ITestContext itestContext) {
@@ -33,13 +34,14 @@ public class SearchOnAmazon extends BaseUITest {
 		testName = logger.getName();
 		logger.info("testContext Name is" + " " + testContext.getName());
 		testConfig.put("testName", testName);
+		searchPage  = new AmazonSearchPage(driver, testConfig, testContext, logger);
 	}
 
 	 @Test(testName = "Search is successful in Amazon", description = "Search on Amazon", priority = 1,
 	 groups="AmazonUITestSuite")
 	public void searchOnAmazonTest() {
 		SoftAssert softAssert = new SoftAssert();
-		AmazonSearchPage searchPage = new AmazonSearchPage(driver, testConfig, testContext, logger);
+		
 		searchPage.startSearch("crompton geyser 15 litre water heater");
 		takeScreenshot("AmazonSearchPage");
 		
